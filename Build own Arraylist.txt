@@ -1,0 +1,52 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class myarraylist{
+    int arr[] = new int[10];
+    int size=0;
+    void add(int ele){
+        if(size>=arr.length) resize();
+        arr[size++]=ele;
+    }
+    void resize(){
+        int newarr[]=new int[2*size];
+        for(int i=0;i<size;i++) newarr[i] = arr[i];
+        arr=newarr;
+    }
+    int get(int idx){
+        return arr[idx];
+    }
+    int size(){
+        return size;
+    }
+    void print(){
+        for(int i=0;i<size;i++) System.out.print(arr[i]+" ");
+        System.out.println();
+    }
+}
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        myarraylist l=new myarraylist();
+        for(int i=0;i<n;i++){
+            String s=sc.next();
+            if(s.equals("add")){
+                l.add(sc.nextInt());
+            }
+            else if(s.equals("get")){
+                System.out.println(l.get(sc.nextInt()));
+            }
+            else if(s.equals("size")){
+                System.out.println(l.size());
+            }
+            else if(s.equals("print")){
+                l.print();
+            }
+        }
+	}
+}

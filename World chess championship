@@ -1,0 +1,35 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		while(t-->0){
+		int x=sc.nextInt();
+		String s=sc.next();
+		int ccount=0,ncount=0,dcount=0;
+		for(int i=0;i<s.length();i++){
+		    char ch=s.charAt(i);
+		    if(ch=='C')
+		    ccount++;
+		    else if(ch=='N')
+		    ncount++;
+		    else
+		    dcount++;
+		}
+		    int carlsenpoints=ccount*2+dcount;
+		    int chefpoints=ncount*2+dcount;
+		    if(carlsenpoints>chefpoints)
+		    System.out.println(60*x);
+		    else if(carlsenpoints==chefpoints)
+		    System.out.println(55*x);
+		    else
+		    System.out.println(40*x);
+	    }
+	}
+}

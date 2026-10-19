@@ -1,0 +1,31 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		SCanner sc=new Scanner(System.in);
+		if(sc.hasNextInt()){
+		    int t=sc.nextInt();
+		    while(t-->0){
+		        String s=sc.next();
+		        boolean isvaild= true;
+		        for(int i=0;i<s.length();i+=2){
+		            if(s.charAt(i) == s.charAt(i+1)){
+		                isvaild=false;
+		                break;
+		            }
+		        }
+		        if(isvaild){
+		            System.out.println("Yes");
+		        } else{
+		            System.out.println("No");
+		        }
+		    }
+		}
+
+	}
+}

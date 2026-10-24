@@ -1,0 +1,29 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc=new Scanner(System.in);
+		int e=sc.nextInt();
+		while(e-->0){
+		    String s=sc.next();
+		    String t=sc.next();
+		   StringBuilder M=new StringBuilder();
+		    for(int i=0;i<5;i++){
+		        if(s.charAt(i)==t.charAt(i)){
+		            M.append('G');
+		        } else{
+		            M.append('B');
+		        }
+		       
+		    }
+		    System.out.println(M);
+		}
+		sc.close();
+
+	}
+}

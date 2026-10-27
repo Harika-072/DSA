@@ -1,0 +1,13 @@
+class Solution {
+    public boolean existsSubsequence(int[] nums, int n, int k) {
+        //write your code here
+        return backtrack(nums,n,k,0,0);
+    }
+    static boolean backtrack(int nums[],int n,int k,int idx,int cursum){
+        if(cursum==k) return true;
+        if(cursum>k || idx>=n) return false;
+        boolean include=backtrack(nums,n,k,idx+1,cursum+nums[idx]);
+        boolean exclude=backtrack(nums,n,k,idx+1,cursum);
+        return include || exclude;
+        }
+}

@@ -1,0 +1,11 @@
+public static int countSubsequences(int[] nums, int k) {
+    // write your code here 
+    return backtrack(nums,nums.length,k,0,0);
+}
+static int backtrack(int nums[],int n,int k,int idx,int cursum){
+    if(cursum==k) return 1;
+    if(cursum>k || idx>=n) return 0;
+    int include=backtrack(nums,n,k,idx+1,cursum+nums[idx]);
+    int exclude=backtrack(nums,n,k,idx+1,cursum);
+    return include+exclude;
+}

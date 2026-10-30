@@ -1,0 +1,19 @@
+class Solution {
+    public int subarraySum(int[] arr, int k) {
+        // write your code here 
+        HashMap<Integer,Integer> Prefixsum=new HashMap<>();
+        Prefixsum.put(0,1);
+        int currentsum=0;
+        int count=0;
+        for(int num:arr){
+            currentsum+=num;
+            int target=currentsum-k;
+            if(Prefixsum.containsKey(target)){
+                count +=Prefixsum.get(target);
+            }
+            Prefixsum.put(currentsum,Prefixsum.getOrDefault(currentsum,0)+1);
+        }
+        return count;
+    }
+}
+

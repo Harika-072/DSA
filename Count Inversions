@@ -1,0 +1,23 @@
+ public static long countInversion(int[] arr, int n) {
+        // Write your logic here
+       return mergeSort(arr,0,n-1);
+        
+    }
+    static long mergeSort(int[] a,int l,int r){
+        if(l>=r) return 0;
+        int m=(l+r)/2;
+        long inv=mergeSort(a,l,m)+mergeSort(a,m+1,r);
+        int[] temp =new int[r-l+1];
+        int i=l,j=m+1,k=0;
+        while(i<=m&&j<=r){
+            if(a[i]<=a[j]) temp[k++]=a[i++];
+            else{
+                temp[k++]=a[j++];
+                inv +=(m-i+1);
+            }
+        }
+        while(i<=m) temp[k++]=a[i++];
+        while(j<=r) temp[k++]=a[j++];
+        System.arraycopy(temp,0,a,l,temp.length);
+        return inv;
+    }
